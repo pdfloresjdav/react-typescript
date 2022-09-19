@@ -24,6 +24,7 @@ React.PureComponent: It is one of the most significant ways to optimize React ap
     export default PercentageStat;
 
 React.Component: But on the other hand, React.Component re-renders itself every time the props passed to it changes, parent component re-renders or if the shouldComponentUpdate() method is called. It doesn’t optimize the React application. They are easy and fast to implement and also are good for very small UI views where a re-render wouldn’t matter that much. They provide cleaner code and fewer files to deal with.
+
     class Welcome extends React.Component {
         render() {
             return <h1>Hello, {this.props.name}</h1>;
@@ -209,15 +210,20 @@ The second argument is a function that’s always run after setState is run. For
 9. List the steps needed to migrate a Class to Function Component.
 
 Change
+
     class MyComponent extends React.Component {
         //...
     }
+
 to
+
     function MyComponent(props) {
         //...
     }
+
 Remove the render method, but keep everything after & including the return. Make this the last statement in your function.
 From
+
     //...
         render() {
             
@@ -225,15 +231,19 @@ From
         
         }
     //...
+
 To
+
     function MyComponent(props) {
         //...
 
         return (<p>Hello, World</p>);
     
     } // end of function
+
 Class methods won't work inside a function, so lets convert them all to functions (closures).
 From
+
     class MyComponent extends React.Component {
     
         onClickHandler(e) {
@@ -241,7 +251,9 @@ From
         }
     
     }
+
 to
+
     function MyComponent {
     
         const onClickHandler = (e) => {
@@ -251,6 +263,7 @@ to
     }
 
 The this variable in your function isn't going to be super useful any more. Remove the references to it throughout your render and functions.
+
     class MyComponent(props) extends React.Component {
     
         //...
@@ -274,7 +287,9 @@ The this variable in your function isn't going to be super useful any more. Remo
         }
     
     }
+
 to
+
     function MyComponent(props) {
     
         //...
@@ -298,6 +313,7 @@ to
 
 Simply removing the constructor is a little tricky, so I'l break it down further.
 From
+
     constructor(props) {
         super(props);
         //Set initial state
@@ -324,6 +340,7 @@ simply remove these lines. (What a gross, overly verbose syntax anyway).
 this.setState obviously doesn't exist any more in our function component. Instead we need to replace each of our setState calls with the relevant state variable setter.
 Replace this;
 From
+
     class MyComponent extends React.Component {
     
         onClickHandler(e) {
@@ -331,7 +348,9 @@ From
         }
     
     }
+
 to
+
     function MyComponent {
     
         const [count, setCount] = useState(0)
@@ -343,6 +362,7 @@ to
         }
     
     }
+    
 Replace lifecycle methods with hooks
 ComponentDidMount
 Instead of using the componentDidMount method, use the useEffect hook with an empty dependency array.
