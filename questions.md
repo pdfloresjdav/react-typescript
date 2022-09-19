@@ -362,7 +362,7 @@ to
         }
     
     }
-    
+
 Replace lifecycle methods with hooks
 ComponentDidMount
 Instead of using the componentDidMount method, use the useEffect hook with an empty dependency array.
@@ -373,15 +373,15 @@ If you pass nothing as the second argument to useEffect, it will trigger wheneve
 
 10. List a few ways styles can be used with components.
 
-1. CSS Stylesheet
-Simply import css file import './DottedBox.css' so you can have a separate css file for each component.
-2. Inline styling
-We can create a variable that stores style properties and then pass it to the element like style={nameOfvariable}
-We can also pass the styling directly style={{color: 'pink'}}
-3. CSS Modules
-A CSS Module is a CSS file in which all class names and animation names are scoped locally by default. Great article about css modules here.
-Similar to css we import css file import styles './DashedBox.css'
-then we access to className as we access to object
+    1. CSS Stylesheet
+    Simply import css file import './DottedBox.css' so you can have a separate css file for each component.
+    2. Inline styling
+    We can create a variable that stores style properties and then pass it to the element like style={nameOfvariable}
+    We can also pass the styling directly style={{color: 'pink'}}
+    3. CSS Modules
+    A CSS Module is a CSS file in which all class names and animation names are scoped locally by default. Great article about css modules here.
+    Similar to css we import css file import styles './DashedBox.css'
+    then we access to className as we access to object
 
 11. How to render an HTML string coming from the server.
 
