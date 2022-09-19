@@ -385,13 +385,13 @@ If you pass nothing as the second argument to useEffect, it will trigger wheneve
 
 11. How to render an HTML string coming from the server.
 
-1: dangerouslySetInnerHTML
-In most cases, dangerouslySetInnerHTML should be enough.
+    1. dangerouslySetInnerHTML
+    In most cases, dangerouslySetInnerHTML should be enough.
 
-    <div dangerouslySetInnerHTML={{__html: '<strong>strong text</strong>'}} />
+        <div dangerouslySetInnerHTML={{__html: '<strong>strong text</strong>'}} />
 
-2: HTML to react parser
-As an alternative to dangerouslySetInnerHTML you can use html-react-parser library.
+    2. HTML to react parser
+    As an alternative to dangerouslySetInnerHTML you can use html-react-parser library.
 
-    var parse = require('html-react-parser');
-    parse('<div>text</div>');
+        var parse = require('html-react-parser');
+        parse('<div>text</div>');
